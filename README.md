@@ -112,8 +112,8 @@ Direct developer email support can be purchased through a [Support Plan][4] or b
 [3]: https://stackoverflow.com/questions/tagged/lightningchart
 [4]: https://www.arction.com/support-services/
 
-[AxisScrollStrategies]: https://www.arction.com/lightningchart-js-api-documentation/v1.0.1/globals.html#axisscrollstrategies
-[ChartXY]: https://www.arction.com/lightningchart-js-api-documentation/v1.0.1/classes/chartxy.html
-[DataPatterns]: https://www.arction.com/lightningchart-js-api-documentation/v1.0.1/globals.html#datapatterns
-[ProgressiveLineSeries]: https://www.arction.com/lightningchart-js-api-documentation/v1.0.1/classes/progressivelineseries.html
+[AxisScrollStrategies]: https://www.arction.com/lightningchart-js-api-documentation/v1.1.0/globals.html#axisscrollstrategies
+[ChartXY]: https://www.arction.com/lightningchart-js-api-documentation/v1.1.0/classes/chartxy.html
+[DataPatterns]: https://www.arction.com/lightningchart-js-api-documentation/v1.1.0/globals.html#datapatterns
+[ProgressiveLineSeries]: https://www.arction.com/lightningchart-js-api-documentation/v1.1.0/classes/progressivelineseries.html
 [ProgressiveTraceGenerator]: https://arction.github.io/xydata/classes/progressivetracegenerator.html
