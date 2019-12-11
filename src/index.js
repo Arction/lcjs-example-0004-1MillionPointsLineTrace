@@ -1,4 +1,4 @@
-/**
+/*
  * LightningChartJS example that showcases a line series with 1 Million streamed points with animated transitions.
  */
 // Import LightningChartJS
