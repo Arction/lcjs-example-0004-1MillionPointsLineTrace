@@ -33,7 +33,7 @@ The ***DataPatterns***-collections object contains all different directions for 
 ```javascript
 // Create line series optimized for horizontally progressive data.
 const series = chart.addLineSeries(
-    // Using the DataPatterns ojbect to select the certain pattern for the line series.
+    // Using the DataPatterns object to select the certain pattern for the line series.
     {  dataPattern: DataPatterns.horizontalProgressive  }
 )
 ```
