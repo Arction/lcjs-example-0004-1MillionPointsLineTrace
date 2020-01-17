@@ -1,5 +1,7 @@
 # 1 Million Points Line Trace
 
+![1 Million Points Line Trace](1mPointsLineTrace.png)
+
 This demo application belongs to the set of examples for LightningChart JS, data visualization library for JavaScript.
 
 LightningChart JS is entirely GPU accelerated and performance optimized charting library for presenting massive amounts of data. It offers an easy way of creating sophisticated and interactive charts and adding them to your website or web application.
@@ -111,7 +113,7 @@ Direct developer email support can be purchased through a [Support Plan][4] or b
 [3]: https://stackoverflow.com/questions/tagged/lightningchart
 [4]: https://www.arction.com/support-services/
 
-© Arction Ltd 2009-2019. All rights reserved.
+© Arction Ltd 2009-2020. All rights reserved.
 
 
 [ChartXY]: https://www.arction.com/lightningchart-js-api-documentation/v1.2.0/classes/chartxy.html
