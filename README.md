@@ -21,7 +21,7 @@ The demo can be used as an example or a seed project. Local execution requires t
 
 This example plots a million data points using progressive line series.
 
-#### Progressive series
+## Progressive series
 
 Progressive series are highly optimized series for the rendering of high-volume and high-density data while keeping full interactivity.
 These optimizations are enabled by selecting a ***DataPattern***, which needs to be specified during the creation of the series instance and cannot be changed further for performance related reasons.
@@ -40,11 +40,11 @@ const series = chart.addLineSeries(
 )
 ```
 
-##### NOTE #1:
+**NOTE #1:**
 
 The series created based on specified ***DataPattern*** is highly optimized **only** for the selected pattern. We do not recommend to provide data that contradict with specified ***DataPattern***.
 
-##### NOTE #2:
+**NOTE #2:**
 
 The scrolling of data in progressive series can also be automated and optimized by specifying ***ScrollStrategy*** for both x-axis & y-axis to perform the scrolling efficiently.
 
