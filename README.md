@@ -116,9 +116,9 @@ Direct developer email support can be purchased through a [Support Plan][4] or b
 © Arction Ltd 2009-2020. All rights reserved.
 
 
-[ChartXY]: https://www.arction.com/lightningchart-js-api-documentation/v1.2.0/classes/chartxy.html
-[AxisScrollStrategies]: https://www.arction.com/lightningchart-js-api-documentation/v1.2.0/globals.html#axisscrollstrategies
-[ProgressiveLineSeries]: https://www.arction.com/lightningchart-js-api-documentation/v1.2.0/classes/progressivelineseries.html
-[DataPatterns]: https://www.arction.com/lightningchart-js-api-documentation/v1.2.0/globals.html#datapatterns
+[ChartXY]: https://www.arction.com/lightningchart-js-api-documentation/v1.3.0/classes/chartxy.html
+[AxisScrollStrategies]: https://www.arction.com/lightningchart-js-api-documentation/v1.3.0/globals.html#axisscrollstrategies
+[ProgressiveLineSeries]: https://www.arction.com/lightningchart-js-api-documentation/v1.3.0/classes/progressivelineseries.html
+[DataPatterns]: https://www.arction.com/lightningchart-js-api-documentation/v1.3.0/globals.html#datapatterns
 [ProgressiveTraceGenerator]: https://arction.github.io/xydata/classes/progressivetracegenerator.html
 
