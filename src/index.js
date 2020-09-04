@@ -7,7 +7,8 @@ const lcjs = require('@arction/lcjs')
 // Extract required parts from LightningChartJS.
 const {
     lightningChart,
-    DataPatterns
+    DataPatterns,
+    Themes
 } = lcjs
 
 // Import data-generator from 'xydata'-library.
@@ -16,7 +17,9 @@ const {
 } = require('@arction/xydata')
 
 // Create a XY Chart.
-const chart = lightningChart().ChartXY()
+const chart = lightningChart().ChartXY({
+    // theme: Themes.dark
+})
     .setTitle('1 Million Points Line Trace')
 
 // Create progressive line series.

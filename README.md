@@ -88,11 +88,11 @@ For example
 
 ## API Links
 
-* XY cartesian chart: [ChartXY]
-* Scroll strategies: [AxisScrollStrategies]
-* Progressive line series: [ProgressiveLineSeries]
-* Data patterns: [DataPatterns]
-* Progressive trace data generator: [ProgressiveTraceGenerator]
+* [XY cartesian chart]
+* [Scroll strategies]
+* [Progressive line series]
+* [Data patterns]
+* [Progressive trace data generator]
 
 
 ## Support
@@ -116,9 +116,9 @@ Direct developer email support can be purchased through a [Support Plan][4] or b
 © Arction Ltd 2009-2020. All rights reserved.
 
 
-[ChartXY]: https://www.arction.com/lightningchart-js-api-documentation/v1.3.0/classes/chartxy.html
-[AxisScrollStrategies]: https://www.arction.com/lightningchart-js-api-documentation/v1.3.0/globals.html#axisscrollstrategies
-[ProgressiveLineSeries]: https://www.arction.com/lightningchart-js-api-documentation/v1.3.0/classes/progressivelineseries.html
-[DataPatterns]: https://www.arction.com/lightningchart-js-api-documentation/v1.3.0/globals.html#datapatterns
-[ProgressiveTraceGenerator]: https://arction.github.io/xydata/classes/progressivetracegenerator.html
+[XY cartesian chart]: https://www.arction.com/lightningchart-js-api-documentation/v2.0.0/classes/chartxy.html
+[Scroll strategies]: https://www.arction.com/lightningchart-js-api-documentation/v2.0.0/globals.html#axisscrollstrategies
+[Progressive line series]: https://www.arction.com/lightningchart-js-api-documentation/v2.0.0/classes/progressivelineseries.html
+[Data patterns]: https://www.arction.com/lightningchart-js-api-documentation/v2.0.0/globals.html#datapatterns
+[Progressive trace data generator]: https://arction.github.io/xydata/classes/progressivetracegenerator.html
 
