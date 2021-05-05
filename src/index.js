@@ -7,7 +7,6 @@ const lcjs = require('@arction/lcjs')
 // Extract required parts from LightningChartJS.
 const {
     lightningChart,
-    DataPatterns,
     Themes
 } = lcjs
 
@@ -20,17 +19,25 @@ const {
 const chart = lightningChart().ChartXY({
     // theme: Themes.dark
 })
-    .setTitle('1 Million Points Line Trace')
 
-// Create progressive line series.
-const series = chart.addLineSeries({ dataPattern: DataPatterns.horizontalProgressive })
+// Create line series optimized for regular progressive X data.
+const series = chart.addLineSeries({
+    dataPattern: {
+        // pattern: 'ProgressiveX' => Each consecutive data point has increased X coordinate.
+        pattern: 'ProgressiveX',
+        // regularProgressiveStep: true => The X step between each consecutive data point is regular (for example, always `1.0`).
+        regularProgressiveStep: true,
+    }
+ })
 
 // Generate traced points stream using 'xydata'-library.
+chart.setTitle('Generating test data...')
 createProgressiveTraceGenerator()
-    .setNumberOfPoints(1000 * 1000)
+    .setNumberOfPoints(1 * 1000 * 1000)
     .generate()
     .toPromise()
     .then(data => {
+        chart.setTitle('1 Million Points Line Trace')
         setInterval(() => {
             series.add(data.splice(0, 20000))
         }, 50)

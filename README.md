@@ -19,32 +19,46 @@ The demo can be used as an example or a seed project. Local execution requires t
 
 ## Description
 
-This example plots a million data points using progressive line series.
+This example plots a million data points in an instant using line series.
 
-## Progressive series
+## Progressive data optimizations
 
-Progressive series are highly optimized series for the rendering of high-volume and high-density data while keeping full interactivity.
-These optimizations are enabled by selecting a ***DataPattern***, which needs to be specified during the creation of the series instance and cannot be changed further for performance related reasons.
+By default, `LineSeries` can take list of XY coordinates in any order, connecting them with a line stroke.
+However, in a lot of applications, the input data comes in a distinct order, for example, X coordinates describe a timestamp which increases between each consecutive data point. We refer to this as a *progressive data pattern*.
 
-The ***DataPatterns***-collections object contains all different directions for progressive data patterns:
-- Select ***DataPatterns.horizontalProgressive*** to handle horizontal progressive datasets efficiently.
-- Select ***DataPatterns.horizontalRegressive*** to handle horizontal regressive datasets efficiently.
-- Select ***DataPatterns.verticalProgressive*** to handle vertical progressive datasets efficiently.
-- Select ***DataPatterns.verticalRegressive*** to handle vertical regressive datasets efficiently.
+`LineSeries` is coupled together with highly sophisticated optimizations that can be enabled in applications where input data follows a *data pattern*. This example showcases the `'ProgressiveX'` *pattern*.
 
-```javascript
-// Create line series optimized for horizontally progressive data.
-const series = chart.addLineSeries(
-    // Using the DataPatterns object to select the certain pattern for the line series.
-    {  dataPattern: DataPatterns.horizontalProgressive  }
-)
+### Enabling data pattern optimizations
+
+*Data pattern* must be specified when the *series* is created:
+
+```typescript
+// Create LineSeries with 'ProgressiveX' data pattern.
+const series = ChartXY.addLineSeries({
+    dataPattern: {
+        // pattern: 'ProgressiveX' => Each consecutive data point has increased X coordinate.
+        pattern: 'ProgressiveX',
+        // regularProgressiveStep: true => The X step between each consecutive data point is regular (for example, always `1.0`).
+        regularProgressiveStep: true,
+    }
+ })
 ```
 
-**NOTE #1:**
+Available *data patterns* are:
+- `'ProgressiveX'`: Each consecutive data point has increased X coordinate.
+- `'ProgressiveY'`: Each consecutive data point has increased Y coordinate.
+- `'RegressiveX'`: Each consecutive data point has decreased X coordinate.
+- `'RegressiveX'`: Each consecutive data point has decreased Y coordinate.
 
-The series created based on specified ***DataPattern*** is highly optimized **only** for the selected pattern. We do not recommend to provide data that contradict with specified ***DataPattern***.
+The pattern of data can be identified even further with the optional `regularProgressiveStep` property.
+This can be enabled when the *progressive step* (for example, `'ProgressiveX'` -> X step) between each data point is regular, leading to even more significant optimizations.
 
-**NOTE #2:**
+### Side-effects and good to know
+
+When a series is configured with a *data pattern*, the rendering process makes logical deductions and ssumptions on the user input data, according to the *data pattern* specification. **If the supplied input data does not follow the specification, rendering errors or even crashes can occur.** If you run into strange issues, first see if disabling the *data pattern* helps, or if your input data is somehow invalid.
+
+
+## Automatic Axis scrolling
 
 The scrolling of data in progressive series can also be automated and optimized by specifying ***ScrollStrategy*** for both x-axis & y-axis to perform the scrolling efficiently.
 
@@ -54,43 +68,12 @@ The scrolling of data in progressive series can also be automated and optimized 
 - Select ***AxisScrollStrategies.regressive***. Automatically scrolls a scale to a negative direction.
 - Pass ***undefined*** to disable automatic scrolling. Scale can then be manually set using *setInterval* method of ***Axis***
 
-For this particular example and based on the selected ***DataPatterns***, the configuration of the axis can be either ***AxisScrollStrategies.progressive*** or ***AxisScrollStrategies.regressive***.
-
-For example
-- ***DataPatterns.horizontalProgressive*** series is created. X-axis scrolling should be configured with ***AxisScrollStrategies.progressive***. Y-scrolling can be any.
-
-    ```javascript
-    // Configure axis to have progressive scrolling.
-    axisX.setScrollStrategy( AxisScrollStrategies.progressive )
-    ```
-
-- ***DataPatterns.horizontalRegressive*** series is created. X-axis scrolling should be configured with ***AxisScrollStrategies.regressive***. Y-scrolling can be any.
-    
-    ```javascript
-    // Configure axis to have regressive scrolling.
-    axisX.setScrollStrategy( AxisScrollStrategies.regressive )
-    ```
-
-- ***DataPatterns.verticalProgressive*** series is created. Y-axis scrolling should be configured with ***AxisScrollStrategies.progressive***. X-scrolling can be any.
-    
-    ```javascript
-    // Configure axis to have progressive scrolling.
-    axisY.setScrollStrategy( AxisScrollStrategies.progressive )
-    ```
-
-- ***DataPatterns.verticalRegressive*** series is created. Y-axis scrolling should be configured with ***AxisScrollStrategies.regressive***. X-scrolling can be any.
-    
-    ```javascript
-    // Configure axis to have regressive scrolling.
-    axisY.setScrollStrategy( AxisScrollStrategies.regressive )
-    ```
-
 
 ## API Links
 
 * [XY cartesian chart]
 * [Scroll strategies]
-* [Progressive line series]
+* [Line series]
 * [Data patterns]
 * [Progressive trace data generator]
 
@@ -116,9 +99,9 @@ Direct developer email support can be purchased through a [Support Plan][4] or b
 © Arction Ltd 2009-2020. All rights reserved.
 
 
-[XY cartesian chart]: https://www.arction.com/lightningchart-js-api-documentation/v2.2.0/classes/chartxy.html
-[Scroll strategies]: https://www.arction.com/lightningchart-js-api-documentation/v2.2.0/globals.html#axisscrollstrategies
-[Progressive line series]: https://www.arction.com/lightningchart-js-api-documentation/v2.2.0/classes/progressivelineseries.html
-[Data patterns]: https://www.arction.com/lightningchart-js-api-documentation/v2.2.0/globals.html#datapatterns
+[XY cartesian chart]: https://www.arction.com/lightningchart-js-api-documentation/v3.0.0/classes/chartxy.html
+[Scroll strategies]: https://www.arction.com/lightningchart-js-api-documentation/v3.0.0/globals.html#axisscrollstrategies
+[Line series]: https://www.arction.com/lightningchart-js-api-documentation/v3.0.0/classes/lineseries.html
+[Data patterns]: https://www.arction.com/lightningchart-js-api-documentation/v3.0.0/interfaces/datapattern.html
 [Progressive trace data generator]: https://arction.github.io/xydata/classes/progressivetracegenerator.html
 
