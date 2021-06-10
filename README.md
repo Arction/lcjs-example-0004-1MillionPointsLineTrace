@@ -1,6 +1,6 @@
-# 1 Million Points Line Trace
+# 1 Million Points JavaScript Line Chart
 
-![1 Million Points Line Trace](1mPointsLineTrace.png)
+![1 Million Points JavaScript Line Chart](1mPointsLineTrace.png)
 
 This demo application belongs to the set of examples for LightningChart JS, data visualization library for JavaScript.
 
