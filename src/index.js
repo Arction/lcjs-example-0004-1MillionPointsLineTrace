@@ -38,7 +38,16 @@ createProgressiveTraceGenerator()
     .toPromise()
     .then(data => {
         chart.setTitle('1 Million Points Line Trace')
-        setInterval(() => {
-            series.add(data.splice(0, 20000))
-        }, 50)
+        const dataLen = data.length
+        let dataPointsCount = 0
+        const addPoints = () => {
+            const addDataPointsCount = 20000
+            const newDataPoints = data.slice(dataPointsCount, dataPointsCount + addDataPointsCount)
+            series.add(newDataPoints)
+            dataPointsCount += addDataPointsCount
+            if (dataPointsCount < dataLen) {
+                requestAnimationFrame(addPoints)
+            }
+        }
+        addPoints()
     })
