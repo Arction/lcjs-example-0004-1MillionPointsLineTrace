@@ -4,16 +4,14 @@
 // Import LightningChartJS
 const lcjs = require('@arction/lcjs')
 
+// Import xydata
+const xydata = require('@arction/xydata')
+
 // Extract required parts from LightningChartJS.
-const {
-    lightningChart,
-    Themes
-} = lcjs
+const { lightningChart, Themes } = lcjs
 
 // Import data-generator from 'xydata'-library.
-const {
-    createProgressiveTraceGenerator
-} = require('@arction/xydata')
+const { createProgressiveTraceGenerator } = xydata
 
 // Create a XY Chart.
 const chart = lightningChart().ChartXY({
@@ -27,8 +25,8 @@ const series = chart.addLineSeries({
         pattern: 'ProgressiveX',
         // regularProgressiveStep: true => The X step between each consecutive data point is regular (for example, always `1.0`).
         regularProgressiveStep: true,
-    }
- })
+    },
+})
 
 // Generate traced points stream using 'xydata'-library.
 chart.setTitle('Generating test data...')
@@ -36,7 +34,7 @@ createProgressiveTraceGenerator()
     .setNumberOfPoints(1 * 1000 * 1000)
     .generate()
     .toPromise()
-    .then(data => {
+    .then((data) => {
         chart.setTitle('1 Million Points Line Trace')
         const dataLen = data.length
         let dataPointsCount = 0
