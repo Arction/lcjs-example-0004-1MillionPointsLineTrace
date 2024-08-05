@@ -2,10 +2,10 @@
  * LightningChartJS example that showcases a line series with 1 Million streamed points with animated transitions.
  */
 // Import LightningChartJS
-const lcjs = require('@arction/lcjs')
+const lcjs = require('@lightningchart/lcjs')
 
 // Import xydata
-const xydata = require('@arction/xydata')
+const xydata = require('@lightningchart/xydata')
 
 // Extract required parts from LightningChartJS.
 const { lightningChart, Themes } = lcjs
