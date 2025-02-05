@@ -8,7 +8,7 @@ const lcjs = require('@lightningchart/lcjs')
 const xydata = require('@lightningchart/xydata')
 
 // Extract required parts from LightningChartJS.
-const { lightningChart, Themes } = lcjs
+const { lightningChart, Themes, emptyFill } = lcjs
 
 // Import data-generator from 'xydata'-library.
 const { createProgressiveTraceGenerator } = xydata
@@ -21,14 +21,12 @@ const chart = lightningChart({
 })
 
 // Create line series optimized for regular progressive X data.
-const series = chart.addLineSeries({
-    dataPattern: {
+const series = chart
+    .addPointLineAreaSeries({
         // pattern: 'ProgressiveX' => Each consecutive data point has increased X coordinate.
-        pattern: 'ProgressiveX',
-        // regularProgressiveStep: true => The X step between each consecutive data point is regular (for example, always `1.0`).
-        regularProgressiveStep: true,
-    },
-})
+        dataPattern: 'ProgressiveX',
+    })
+    .setAreaFillStyle(emptyFill)
 
 // Generate traced points stream using 'xydata'-library.
 chart.setTitle('Generating test data...')
@@ -43,7 +41,7 @@ createProgressiveTraceGenerator()
         const addPoints = () => {
             const addDataPointsCount = 20000
             const newDataPoints = data.slice(dataPointsCount, dataPointsCount + addDataPointsCount)
-            series.add(newDataPoints)
+            series.appendJSON(newDataPoints)
             dataPointsCount += addDataPointsCount
             if (dataPointsCount < dataLen) {
                 requestAnimationFrame(addPoints)
